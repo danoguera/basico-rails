@@ -1,0 +1,36 @@
+<h1>Vehículos</h1>
+<table border=1>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marca</th>
+            <th>Color</th>
+            <th>Estilo</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>view</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @vehiculos.each do |vehiculo| %>
+        <tr>
+            <td><%= vehiculo.id %> </td>
+            <td><%= vehiculo.marca %> </td>
+            <td><%= vehiculo.color %> </td>
+            <td><%= vehiculo.estilo %> </td>
+            <td><%= vehiculo.modelo %> </td>
+            <td><%= vehiculo.precio %> </td>
+            <td><%= link_to "View" , vehiculo_path(vehiculo) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<div>
+    <%= link_to "Crear Auto", new_vehiculo_path %>
+</div>
+
+<div>
+    <%= link_to "Volver al Menú Original", root_path %>
+</div>

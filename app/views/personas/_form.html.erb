@@ -1,0 +1,30 @@
+<h1><%= form_title %></h1>
+<% if @persona.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @persona.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @persona do |f| %>
+    <div>
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre %>  
+    </div>
+    <div>
+    <%= f.label :apellido %>        
+    <%= f.text_field :apellido %>    
+    </div>
+    <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>  
+    </div>  
+    <div>
+    <%= f.label :edad , class: "btn btn-info" %>    
+    <%= f.number_field :edad %>
+    </div>
+  <%= f.submit form_title %>
+<% end %>

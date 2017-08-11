@@ -1,0 +1,33 @@
+<h2><%= @persona.nombre %> <%= @persona.apellido %></h2>
+<div>
+    <span>Edad: </span> <%= @persona.edad %>
+</div>
+<div>
+    <span>Email: </span> <%= @persona.email %>
+</div>
+
+<div>
+    <h3>Vehículos</h3>
+    <% if @persona.vehiculos.length != 0 %>
+    <ul>
+        <% @persona.vehiculos.each_with_index do |v| %>
+            <% mas = v.marca + " " + v.modelo.to_s %>
+            <li><%= link_to "mas", vehiculo_path(v) %></li>
+        <% end %>            
+        <% else %>
+            <p>No tiene</p>
+    </ul>
+    <% end %>
+</div>
+
+<div>
+    <%= link_to "Volver", root_path %>
+</div>
+
+<div>
+    <%= link_to "Editar", edit_persona_path(@persona) %>
+</div>
+
+<div>
+    <%= link_to "Eliminar", @persona , method: :delete, data: { confirm: "Estas Seguro?"} %>
+</div>

@@ -1,0 +1,30 @@
+<h1>Personas</h1>
+<table border=1>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>view</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @personas.each do |persona| %>
+        <tr>
+            <td><%= persona.id %> </td>
+            <td><%= persona.nombre %> </td>
+            <td><%= persona.apellido %> </td>
+            <td><%= link_to "View" , persona_path(persona) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<div>
+    <%= link_to "Crear Persona", new_persona_path %>
+</div>
+
+<div>
+    <%= link_to "Volver al Menú Original", root_path %>
+</div>

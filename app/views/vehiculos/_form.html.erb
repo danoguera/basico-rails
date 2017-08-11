@@ -1,0 +1,29 @@
+<%= form_for @vehiculo do |f| %>
+    <div>
+      <%= f.label :marca %>
+      <%= f.text_field :marca %>  
+    </div>
+    <div>
+    <%= f.label :color %>        
+    <%= f.text_field :color %>    
+    </div>
+    <div>
+    <%= f.label :estilo %>
+    <%= f.text_field :estilo %>  
+    </div>  
+    <div>
+    <%= f.label :modelo %>
+    <%= f.number_field :modelo %>  
+    </div>      
+    <div>
+    <%= f.label :precio %>    
+    <%= f.number_field :precio %>
+    </div>
+    
+    <div>
+      <%= f.label :persona_id %><br>
+      <%= f.select :persona_id, Persona.all.collect { |a| [ a.nombre, a.id] } %>
+    </div>
+    
+  <%= f.submit form_vehicle %>
+<% end %>

@@ -1,0 +1,35 @@
+<h2>Resultados</h2>
+<div>
+    <span>Marca: </span> <%= @vehiculo.marca %>
+</div>
+<div>
+    <span>Color: </span> <%= @vehiculo.color %>
+</div>
+<div>
+    <span>Estilo: </span> <%= @vehiculo.estilo %>
+</div>
+<div>
+    <span>Modelo: </span> <%= @vehiculo.modelo %>
+</div>
+<div>
+    <span>Precio: </span> <%= @vehiculo.precio %>
+</div>
+
+<div>
+    Propietario:
+    <%= @vehiculo.persona.nombre if @vehiculo.persona %>
+    <%= @vehiculo.persona.apellido if @vehiculo.persona %>
+    <%= link_to "Detalle", persona_path(@vehiculo.persona) if @vehiculo.persona %>
+</div>
+
+<div>
+    <%= link_to "Volver", vehiculos_path %>
+</div>
+
+<div>
+    <%= link_to "Editar", edit_vehiculo_path(@vehiculo) %>
+</div>
+
+<div>
+    <%= link_to "Eliminar", @vehiculo , method: :delete, data: { confirm: "Estas Seguro?"} %>
+</div>
